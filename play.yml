@@ -1,0 +1,21 @@
+---
+
+- name: File copy test
+  hosts: servers
+
+  tasks:
+
+  - name: Copy file with permissions
+    copy:
+      src: /tmp/verao.zic
+      dest: /tmp/verao.zic
+      mode: '0775'
+
+  - name: Backup file /usr/share/zoneinfo/America/Sao_Paulo
+    command: cp -v /usr/share/zoneinfo/America/Sao_Paulo /usr/share/zoneinfo/America/Sao_Paulo.bkp
+
+  - name: Running zic
+    command: zic /tmp/verao.zic
+
+  - name: Completed
+    command: zdump -v /etc/localtime
