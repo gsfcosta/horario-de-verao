@@ -1,0 +1,13 @@
+---
+
+- name: Windows Timezone
+  hosts: win 
+
+  tasks:
+
+  - name: Set Register path 
+    win_regedit:
+      path: HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
+      name: DisableAutoDaylightTimeSet
+      data: 1
+      type: dword
