@@ -1,6 +1,6 @@
 ---
-ansible_user: costa@UOLTEST.local
-ansible_password: Senha@132
+ansible_user: !
+ansible_password: !
 ansible_connection: winrm
 ansible_winrm_transport: credssp
 ansible_port: 5985
